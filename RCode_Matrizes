@@ -1,0 +1,117 @@
+# TeoriaDeMatrizes
+
+#setwd("D:/Meus documentos/Meus documentos/ACADÊMICO")
+
+##### EXERCÍCIO 1 #####
+
+
+det()
+solve() #inversa
+sum() #traço
+t() #transposta
+
+
+# QUESTAO 1 - DEFINIR UMA MATRIZ 2 x 2 E OUTRA DE DIMENSOES 6 x 2
+
+mat1 = matrix(data = 1:4, nrow = 2, ncol = 2)
+print(mat1)
+
+mat2 = matrix(data = 1:12, nrow = 6, ncol = 2)
+print(mat2)
+
+
+# QUESTAO 2 - CALCULAR O DETERMINANTE DA PRIMEIRA MATRIZ E DE SUA TRANSPOSTA
+
+det(mat1)
+t(mat1)
+
+
+# QUESTAO 3 - QUAL A MATRIZ RESULTANTE DO PRODUTO DA PRIMEIRA MATRIZ PELA TRANSPOSTA DA SEGUNDA
+
+mat1%*%t(mat2)
+
+
+# QUESTAO 4 = CALCULAR A RAZAO ENTRE O DETERMINANTE PELO TRAÇO DA PRIMEIRA MATRIZ
+
+det(mat1)/sum(diag(mat1))
+
+
+##### EXERCÍCIO 2 #####
+
+idade = c(43, 66, 72, 23, 56)
+sexo = c(1, 0, 1, 1, 0)
+
+# CRIAR MATRIZ 
+
+pessoas = cbind(idade,sexo)
+print(pessoas)
+
+# CRIAR SUBMATRIZ
+
+idosos = pessoas[pessoas[,1] > 65,]
+print(idosos)
+
+
+# nome.matriz[condição, ]
+f = pessoas[pessoas[ ,2]==0,]
+print(f)
+
+
+g = pessoas[pessoas[ ,2]!=0,]
+print(g)
+
+
+
+##### EXERCÍCIO 3 #####
+
+A = matrix(c(1, -2, 1, 0 , 2, -8, -4, 5, 9), nrow=3, ncol=3, byrow=TRUE)
+#print(A)
+
+b = c(0, 8, -9)
+# print(b)
+
+x = solve(A)%*%b
+print(x)
+
+
+
+##### EXEMPLO 1 ######
+
+holmes = list(Ano=2014, Pais = "Brasil", estado = c("PA", "AM", "TO", "AC", "RO"), pessoas = pessoas)
+print(holmes)
+
+names(holmes)
+
+
+y = rnorm(100, 0, 1)
+h = hist(y)
+
+
+#### EXEMPLO 2  #####
+
+
+y = function(x)
+  {
+  sq = x^2
+  return(sq)
+  }
+y(2)
+
+
+
+#### EXEMPLO 3  #####
+
+## y = x^2
+
+y = function(x)
+{
+  media = mean(x)
+  dp = sd(x)
+  mediana = median(x)
+  histo = hist(x)
+  cento=list(media=media, desvio.p=dp, mediana = mediana, hist=histo)
+  return(cento)
+}
+z = rexp(200,1)
+y(z)
+
